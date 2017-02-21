@@ -1,25 +1,18 @@
-﻿#include "stdafx.h"
+#include "stdafx.h"
 #include "complex.h"
 
 
 complex::complex()
 {
-	this->_re = 0.0;
-	this->_im = 0.0;
+	_re = 0.0;
+	_im = 0.0;
 }
 
 
 complex::complex(const double re, const double im)
 {
-	this->_re = re;
-	this->_im = im;
-}
-
-
-complex::complex(const double re)
-{
-	this->_re = re;
-	this->_im = 0.0;
+	_re = re;
+	_im = im;
 }
 
 
@@ -34,32 +27,29 @@ void complex::print(std::ostream& out) const
 }
 
 
-void complex::add(const complex& c)
+complex complex::add(const complex& c) const
 {
-	this->_re += c._re;
-	this->_im += c._im;
+	return complex(_re + c._re, _im + c._im);
 }
 
 
-void complex::sub(const complex& c)
+complex complex::sub(const complex& c) const
 {
-	this->_re -= c._re;
-	this->_im -= c._im;
+	return complex(_re - c._re, _im - c._im);
 }
 
 
-void complex::mult(const int num)
+complex complex::mult(const int num) const
 {
-	this->_re *= num;
-	this->_im *= num;
+	return complex(_re * num, _im * num);
 }
 
 
-void complex::div(const int num)
+complex complex::div(const int num) const
 {
 	if (num)
 	{
-		this->_re /= num;
-		this->_im /= num;
+		return complex(_re / num, _im / num);
 	}
+	return complex(_re, _im);
 }

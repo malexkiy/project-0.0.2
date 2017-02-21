@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <ostream>
 
 class complex
@@ -9,13 +9,12 @@ private:
 public:
 	complex();
 	complex(const double, const double);
-	complex(const double);
 	~complex();
 
 	void print(std::ostream&) const;
-	void add(const complex&);
-	void sub(const complex&);
-	void mult(const int);
-	void div(const int);
+	complex add(const complex&) const;
+	complex sub(const complex&) const;
+	complex mult(const int) const;
+	complex div(const int) const;
 };
 
